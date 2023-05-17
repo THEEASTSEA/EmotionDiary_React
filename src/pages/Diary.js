@@ -33,7 +33,7 @@ const Diary = () => {
         navigate('/', { replace: true })
       }
     }
-  }, [id, diaryList])
+  }, [id, diaryList, navigate])
 
 
   if (!data) {

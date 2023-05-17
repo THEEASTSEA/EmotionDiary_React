@@ -29,7 +29,7 @@ const Edit = () => {
         // id 값이 없을 경우 강제로 홈으로 이동, 뒤로가기 방지
       }
     }
-  }, [id, diaryList])
+  }, [id, diaryList, navigate])
   // 컴포넌트가 마운트 되었을 때, 다이어리 리스트에서
   // 현재 Id 값에 맞는 데이터 불러오기
 

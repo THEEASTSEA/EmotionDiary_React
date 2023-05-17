@@ -9,30 +9,25 @@ import Diary from './pages/Diary'
 const reducer = (state, action) => {
   let newState = []
   switch (action.type) {
-    case 'INIT': {
-      return action.data
-      break
-      // action.data 최신회된 데이터
-      // state 기존 데이터
-    }
-    case 'CREATE': {
+    case 'INIT':
+      return action.data // action.data 최신회된 데이터, state 기존 데이터
+    case 'CREATE':
       newState = [action.data, ...state]
       break
-    }
-    case 'REMOVE': {
+    case 'REMOVE':
       newState = state.filter((it) => it.id !== action.targetId)
       break
-    }
-    case 'EDIT': {
+    case 'EDIT':
       newState = state.map((it) =>
-        it.id === action.data.id ? { ...action.data } : it)
+        it.id === action.data.id ? { ...action.data } : it
+      )
       break
-    }
     default:
       return state
   }
   return newState
 }
+
 
 export const DiaryStateContext = React.createContext()
 export const DiaryDispatchContext = React.createContext()
