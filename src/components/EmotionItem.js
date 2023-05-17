@@ -6,7 +6,7 @@ const EmotionItem = ({ emotion_id, emotion_img, emotion_descript, onClick, isSel
         "emotion_item", isSelected ? `emotion_item_on_${emotion_id}` : `emotion_item_off`,
       ].join(" ")}
     >
-      <img src={emotion_img} />
+      <img src={emotion_img} alt="" />
       <span>{emotion_descript}</span>
     </div>
   );

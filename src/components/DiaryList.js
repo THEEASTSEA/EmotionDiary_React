@@ -54,7 +54,7 @@ const DiaryList = ({ diaryList }) => {
     const copyList = JSON.parse(JSON.stringify(diaryList))
     // 원본 데이터의 값이 Json변환 후 배열로 생성
 
-    const failteredList = filter == 'all' ? copyList : copyList.filter((it) => filterCallback(it))
+    const failteredList = filter === 'all' ? copyList : copyList.filter((it) => filterCallback(it))
 
     const sortedList = failteredList.sort(compare)
     return sortedList

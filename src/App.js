@@ -11,6 +11,7 @@ const reducer = (state, action) => {
   switch (action.type) {
     case 'INIT': {
       return action.data
+      break
       // action.data 최신회된 데이터
       // state 기존 데이터
     }
@@ -25,6 +26,7 @@ const reducer = (state, action) => {
     case 'EDIT': {
       newState = state.map((it) =>
         it.id === action.data.id ? { ...action.data } : it)
+      break
     }
     default:
       return state
