@@ -27,7 +27,10 @@ const Home = () => {
       const lastDay = new Date(
         curDate.getFullYear(),
         curDate.getMonth() + 1,
-        0 // 마지막 날짜
+        0,
+        23,
+        59,
+        59 // 마지막 날짜, 시, 분, 초
       )
 
       setData(

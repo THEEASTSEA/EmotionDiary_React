@@ -18,6 +18,12 @@ const Diary = () => {
   const [data, setData] = useState()
 
   useEffect(() => {
+    const titleEl = document.getElementsByTagName('title')[0]
+    // 문서에서 타이틀 객체를 모두 가져오기(배열))
+    titleEl.innerHTML = `감정 일기장 - ${id}번 일기`
+  }, [])
+
+  useEffect(() => {
     if (diaryList.length >= 1) {
       const targetDiary = diaryList.find(
         (it) => parseInt(it.id) === parseInt(id)

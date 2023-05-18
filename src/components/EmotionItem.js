@@ -1,4 +1,7 @@
+import React from "react";
+
 const EmotionItem = ({ emotion_id, emotion_img, emotion_descript, onClick, isSelected }) => {
+  // 함수는 기본적으로 컴포넌트 렌더링 시 재생성
   return (
     <div
       onClick={() => onClick(emotion_id)}
@@ -12,4 +15,4 @@ const EmotionItem = ({ emotion_id, emotion_img, emotion_descript, onClick, isSel
   );
 };
 
-export default EmotionItem;
+export default React.memo(EmotionItem);

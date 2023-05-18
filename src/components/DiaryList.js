@@ -1,20 +1,20 @@
-import { useState } from "react"
+import React, { useEffect, useState } from "react"
 import MyButton from "./MyButton"
 import { useNavigate } from "react-router-dom"
 import DiaryItem from "./DiaryItem"
 
 const sortOptionList = [
-  { value: "latest", name: "최신순" },
-  { value: "oldest", name: "오래된순" }
+  { value: "latest", name: "최근" },
+  { value: "oldest", name: "과거" }
 ]
 const filterOptionList = [
   { value: "all", name: "모두" },
-  { value: "good", name: "좋은 감정" },
-  { value: "bad", name: "나쁜 감정" }
+  { value: "good", name: "좋았어!" },
+  { value: "bad", name: "싫었어!" }
 ]
 
 
-const ControlMenu = ({ value, onChange, optionList }) => {
+const ControlMenu = React.memo(({ value, onChange, optionList }) => {
   // value 선택한 값, onChange 선택 값이 변경, 옵션(선택 리스트)
   return (<select className="ControlMenu" value={value} onChange={(e) => onChange(e.target.value)}>
     {optionList.map((it, idx) => (
@@ -24,22 +24,22 @@ const ControlMenu = ({ value, onChange, optionList }) => {
     ))}
   </select>
   )
-}
+})
 
 const DiaryList = ({ diaryList }) => {
   const navigate = useNavigate()
 
   // State
-  const [sortType, setSortType] = useState('lastest')
+  const [sortType, setSortType] = useState('latest')
   const [filter, setFilter] = useState('all')
 
 
   const getProcessedDiaryList = () => {
     const filterCallback = (item) => {
       if (filter === 'good') {
-        return parseInt(item.emotion) <= 3
+        return parseInt(item.emotion) >= 3
       } else {
-        return parseInt(item.emotion) > 3
+        return parseInt(item.emotion) < 3
       }
     }
 

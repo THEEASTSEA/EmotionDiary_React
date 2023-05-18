@@ -39,7 +39,7 @@ body {
   padding-bottom: 10px;
   padding-left: 20px;
   padding-right: 20px;
-  font-size: 18px;
+  font-size: 16px;
   white-space: nowrap;
 }
 
@@ -73,7 +73,7 @@ header>div {
 
 header .head_text {
   width: 50%;
-  font-size: 25px;
+  font-size: 18px;
   justify-content: center;
 }
 
@@ -98,6 +98,10 @@ header button {}
 
   display: flex;
   justify-content: space-between;
+}
+
+.DiaryList .menu_wrapper .left_col select {
+  font-size: 16px;
 }
 
 .DiaryList .menu_wrapper .right_col {
@@ -137,8 +141,8 @@ header button {}
 
 .DiaryItem .emotion_img_wrapper {
   cursor: pointer;
-  min-width: 120px;
-  height: 80px;
+  min-width: 90px;
+  height: 90px;
   border-radius: 5px;
   display: flex;
   justify-content: center;
@@ -171,11 +175,12 @@ header button {}
 .DiaryItem .info_wrapper {
   cursor: pointer;
   flex-grow: 1;
-  margin-left: 20px;
+  margin-left: 10px;
+  padding: 0px 10px 0px 5px;
 }
 
 .DiaryItem .diary_date {
-  font-size: 25px;
+  font-size: 18px;
   font-weight: bold;
   margin-bottom: 5px;
 }
@@ -198,8 +203,12 @@ header button {}
   margin-bottom: 40px;
 }
 
+.DiaryEditor section div span {
+  font-size: 14px;
+}
+
 .DiaryEditor h4 {
-  font-size: 22px;
+  font-size: 18px;
   font-weight: bold;
 }
 
@@ -223,7 +232,7 @@ header button {}
 }
 
 .DiaryEditor textarea {
-  font-size: 20px;
+  font-size: 18px;
   box-sizing: border-box;
   width: 100%;
   min-height: 200px;
@@ -302,7 +311,7 @@ header button {}
 }
 
 .DiaryPage h4 {
-  font-size: 22px;
+  font-size: 18px;
   font-weight: bold;
 
 }
@@ -325,7 +334,7 @@ header button {}
 }
 
 .DiaryPage .emotion_descript {
-  font-size: 22px;
+  font-size: 18px;
 }
 
 .DiaryPage .diary_content_wrapper {
@@ -339,7 +348,7 @@ header button {}
 .DiaryPage .diary_content_wrapper p {
   padding: 20px;
   text-align: left;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 400;
   line-height: 2.5;
 }

@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom"
-import { useState, useRef, useContext, useEffect } from "react"
+import { useState, useRef, useContext, useEffect, useCallback } from "react"
 
 import MyHeader from "./MyHeader"
 import MyButton from "./MyButton"
@@ -23,29 +23,37 @@ const DiaryEditor = ({ isEdit, orginData }) => {
   const [content, setContent] = useState("")
   // 일기 내용 저장하는 state
 
-  const handleClickEmote = (emotion) => {
+  const handleClickEmote = useCallback((emotion) => {
     setEmotion(emotion)
-  }
+  }, [])
 
   const navigate = useNavigate()
 
-  const { onCreate, onEdit } = useContext(DiaryDispatchContext)
+  const { onCreate, onEdit, onRemove } = useContext(DiaryDispatchContext)
+
   const handelSubmit = () => {
     if (content.length < 1) {
-      contentRef.current.focus()
-      return
+      contentRef.current.focus();
+      return;
     }
 
     if (window.confirm(isEdit ? "일기를 수정할까요?" : "새로운 일기를 작성할까요?")) {
       if (!isEdit) {
-        onCreate(date, content, emotion)
+        onCreate(date, content, emotion);
       } else {
-        onEdit(orginData.id, date, content, emotion)
+        onEdit(orginData.id, date, content, emotion);
       }
     }
 
-    onCreate(date, content, emotion)
-    navigate('/', { replace: true })
+    navigate("/", { replace: true });
+  };
+
+
+  const handelRemove = () => {
+    if (window.confirm('일기를 삭제할까요?')) {
+      onRemove(orginData.id)
+      navigate('/', { replace: true })
+    }
   }
 
   useEffect(() => {
@@ -57,7 +65,12 @@ const DiaryEditor = ({ isEdit, orginData }) => {
   }, [isEdit, orginData])
 
   return <div className="DiaryEditor">
-    <MyHeader headText={isEdit ? "일기 수정" : "일기 쓰기"} leftChild={<MyButton text={"<"} onClick={() => navigate(-1)} />} />
+    <MyHeader headText={isEdit ? "일기 수정" : "일기 쓰기"}
+      leftChild={<MyButton text={"<"} onClick={() => navigate(-1)} />}
+      rightChild={isEdit &&
+        <MyButton text={'삭제'} type={"negative"} onClick={handelRemove} />
+      }
+    />
 
     <div>
       <section>
