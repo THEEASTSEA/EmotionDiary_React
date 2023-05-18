@@ -141,7 +141,7 @@ header button {}
 
 .DiaryItem .emotion_img_wrapper {
   cursor: pointer;
-  min-width: 90px;
+  width: 90px;
   height: 90px;
   border-radius: 5px;
   display: flex;
